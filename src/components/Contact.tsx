@@ -42,7 +42,7 @@ const Contact = () => {
             Contact Us
           </h2>
           <p className="text-muted-foreground text-lg">
-            Ready to discuss your project? Our team is here to help with your 
+            Ready to discuss your project? Our team is here to help with your
             industrial construction needs.
           </p>
         </div>
@@ -191,7 +191,7 @@ const Contact = () => {
             </div>
 
             {/* CTA Card */}
-            <div className="bg-primary text-primary-foreground rounded-lg p-6">
+            {/* <div className="bg-primary text-primary-foreground rounded-lg p-6">
               <h3 className="font-heading text-xl font-bold mb-3">
                 Request a Quote
               </h3>
@@ -202,16 +202,20 @@ const Contact = () => {
               <Button className="btn-cta">
                 Get Free Quote
               </Button>
-            </div>
+            </div> */}
 
             {/* Map Placeholder */}
-            <div className="card-steel overflow-hidden h-48">
+            <div className="card-steel overflow-hidden">
               <div className="w-full h-full bg-secondary flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
-                  <p className="text-muted-foreground text-sm">
-                    Andhra Pradesh & Telangana, India
-                  </p>
+                <div className="w-full h-64 rounded-xl overflow-hidden">
+                  <iframe
+                    src="https://www.google.com/maps?q=43.774514,-79.230467&z=10&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    // allowFullScreen=""
+                    loading="lazy"
+                  ></iframe>
                 </div>
               </div>
             </div>

@@ -3,27 +3,27 @@ import { Warehouse, Ruler, Weight, Settings } from "lucide-react";
 const facilities = [
   {
     icon: Warehouse,
-    value: "160,000",
+    value: "39,500",
     unit: "sq.m",
     label: "Total Plant Area",
   },
   {
     icon: Ruler,
-    value: "18,000",
+    value: "22,200",
     unit: "sq.m",
     label: "Covered Area",
   },
   {
     icon: Weight,
     value: "40,000",
-    unit: "tons",
-    label: "Storage Capacity",
+    unit: "MT",
+    label: "Steel Structure Capacity/yr",
   },
   {
     icon: Settings,
-    value: "250",
+    value: "66,000",
     unit: "MT",
-    label: "Assembly Capacity",
+    label: "Pipeline Capacity/yr",
   },
 ];
 
@@ -99,35 +99,28 @@ const Facilities = () => {
             ))}
           </div>
         </div>
-
-        {/* Additional Info */}
-        <div className="grid md:grid-cols-3 gap-6 mt-12">
+        <div className="grid md:grid-cols-2 gap-6 mt-12">
           <div className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-lg p-6">
-            <h4 className="font-heading text-xl font-semibold mb-3">
-              Raw Material Storage
+            <h4 className="font-heading text-xl font-semibold mb-4">
+              Unit I — Primary Manufacturing
             </h4>
-            <p className="text-primary-foreground/70 text-sm">
-              50,000 sq.m dedicated storage area with capacity for up to 40,000 tons 
-              of raw materials.
-            </p>
+            <ul className="space-y-2 text-primary-foreground/70 text-sm">
+              <li>Plant Area: 30,000 sq.m | Covered: 15,000 sq.m</li>
+              <li>EOT Cranes: 1 × 10 MT</li>
+              <li>Traveling Cranes: 2 × 5 MT</li>
+              <li>Open Yard Assembly: up to 1,000 MT</li>
+            </ul>
           </div>
           <div className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-lg p-6">
-            <h4 className="font-heading text-xl font-semibold mb-3">
-              Blasting & Painting
+            <h4 className="font-heading text-xl font-semibold mb-4">
+              Unit II
             </h4>
-            <p className="text-primary-foreground/70 text-sm">
-              30,000 sq.m dedicated facility for surface preparation, blasting, 
-              and painting operations.
-            </p>
-          </div>
-          <div className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-lg p-6">
-            <h4 className="font-heading text-xl font-semibold mb-3">
-              Open Yard Assembly
-            </h4>
-            <p className="text-primary-foreground/70 text-sm">
-              Large-scale assembly area with 250 MT capacity for heavy structure 
-              fabrication and assembly.
-            </p>
+            <ul className="space-y-2 text-primary-foreground/70 text-sm">
+              <li>Plant Area: 9,500 sq.m | Covered: 7,200 sq.m</li>
+              <li>EOT Cranes: 2 × 20 MT</li>
+              <li>Traveling Cranes: 2 × 14 MT</li>
+              <li>Open Yard Assembly: up to 200 MT</li>
+            </ul>
           </div>
         </div>
       </div>

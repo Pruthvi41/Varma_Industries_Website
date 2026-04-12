@@ -21,6 +21,7 @@ const Footer = () => {
     "CS Pipes & Tubulars",
   ];
 
+
   return (
     <footer className="bg-navy-dark text-primary-foreground">
       {/* Main Footer */}
@@ -32,8 +33,8 @@ const Footer = () => {
               VARMA INDUSTRIAL
             </h3>
             <p className="text-primary-foreground/60 text-sm mb-6 leading-relaxed">
-              Pioneering steel structures and industrial solutions since 2006. 
-              ISO 9001:2015 certified organization delivering excellence across 
+              Pioneering steel structures and industrial solutions since 2006.
+              ISO 9001:2015 certified organization delivering excellence across
               Andhra Pradesh & Telangana.
             </p>
             {/* Social Icons */}
@@ -92,10 +93,17 @@ const Footer = () => {
             </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-orange flex-shrink-0 mt-0.5" />
-                <span className="text-primary-foreground/60 text-sm">
-                  Andhra Pradesh & Telangana, India
-                </span>
+                <a
+                  href="https://www.google.com/maps?q=17.3850,78.4867"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 group"
+                >
+                  <MapPin className="w-5 h-5 text-orange flex-shrink-0 mt-0.5 group-hover:scale-110 transition" />
+                  <span className="text-primary-foreground/60 text-sm group-hover:underline">
+                    Andhra Pradesh & Telangana, India
+                  </span>
+                </a>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-orange flex-shrink-0 mt-0.5" />

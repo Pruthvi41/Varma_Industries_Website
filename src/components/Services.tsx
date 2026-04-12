@@ -4,45 +4,45 @@ import pipelineImg from "@/assets/pipeline.jpg";
 const services = [
   {
     icon: Building2,
-    title: "Steel Structures",
+    title: "Steel Structures Fabrication & Erections",
     description:
-      "Industrial steel structures, fabrication, and erection works for warehouses, factories, and commercial buildings.",
-    features: ["Fabrication", "Erection", "Design Support"],
+      "Heavy, medium & light structure production, PEB structures, built-up sections. 40,000 MT annual capacity.",
+    features: ["Heavy Structures", "PEB", "Built-Up Sections"],
   },
   {
     icon: Pipette,
-    title: "Pipeline Construction",
+    title: "Industrial & Oil Gas Pipelines",
     description:
-      "Oil & gas pipelines, industrial water pipelines, steam/process piping for refineries and power plants.",
-    features: ["Oil & Gas", "Water Grids", "Process Piping"],
+      "Refinery infrastructure, petrochemical plants, pipeline networks with 66,000 MT pipeline capacity.",
+    features: ["Oil & Gas", "Petrochemical", "66,000 MT Capacity"],
   },
   {
     icon: Wrench,
-    title: "Custom Fabrication",
+    title: "Construction Works",
     description:
-      "Power projects including boiler erections, storage tanks, and specialized industrial equipment.",
-    features: ["Boiler Erections", "Storage Tanks", "Equipment"],
+      "Industrial construction, plant erection, structural installations. Complete turnkey solutions.",
+    features: ["Plant Erection", "Structural", "Turnkey"],
   },
   {
     icon: Anchor,
-    title: "Ports & Marine",
+    title: "Ship Building & Marine",
     description:
-      "Offshore applications, ship building support, jetties, and marine infrastructure projects.",
-    features: ["Offshore", "Jetties", "Marine Works"],
+      "Vessel fabrication, marine structure construction, ship maintenance. Platform fabrication, pontoons & barges.",
+    features: ["Vessels", "Pontoons", "Deep Water"],
   },
   {
     icon: Factory,
-    title: "Urban Infrastructure",
+    title: "Urban & Infrastructure Projects",
     description:
-      "Urban development projects, bulk terminals, and large-scale infrastructure installations.",
-    features: ["Terminals", "Infrastructure", "Development"],
+      "Commercial complexes, malls, public infrastructure development. Smart city ready solutions.",
+    features: ["Malls", "Commercial", "Smart City"],
   },
   {
     icon: Cog,
-    title: "CS Pipes & Tubulars",
+    title: "Offshore & Marine Works",
     description:
-      "Carbon steel pipes for raw water pipelines, structural proposals, and specialized applications.",
-    features: ["Raw Water", "Structural", "Specialized"],
+      "Platform fabrication, pontoons, barges, offshore installations for deep water applications.",
+    features: ["Platforms", "Barges", "Offshore"],
   },
 ];
 

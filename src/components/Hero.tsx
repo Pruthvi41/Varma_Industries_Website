@@ -1,5 +1,4 @@
-import { ArrowRight, Shield, Award, Clock } from "lucide-react";
-import { Button } from "./ui/button";
+import { Shield, Award, Clock } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
@@ -45,7 +44,7 @@ const Hero = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-slide-up" style={{ animationDelay: "0.3s" }}>
+          {/* <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-slide-up" style={{ animationDelay: "0.3s" }}>
             <Button className="btn-cta text-lg flex items-center gap-2">
               Request a Quote
               <ArrowRight className="w-5 h-5" />
@@ -53,31 +52,31 @@ const Hero = () => {
             <Button variant="outline" className="btn-outline-light text-lg">
               Explore Our Projects
             </Button>
-          </div>
+          </div> */}
 
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-primary-foreground/10 animate-slide-up" style={{ animationDelay: "0.4s" }}>
             <div className="text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
+           <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
                 <Clock className="w-5 h-5 text-orange" />
-                <span className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground">18+</span>
+                <span className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground">19+</span>
               </div>
               <p className="text-primary-foreground/60 text-sm">Years Experience</p>
             </div>
             <div className="text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
                 <Award className="w-5 h-5 text-orange" />
-                <span className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground">500+</span>
+                <span className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground">34+</span>
               </div>
               <p className="text-primary-foreground/60 text-sm">Projects Completed</p>
             </div>
             <div className="text-center md:text-left">
-              <span className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground">160K</span>
-              <p className="text-primary-foreground/60 text-sm">Sq.m Plant Area</p>
+              <span className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground">40,000</span>
+              <p className="text-primary-foreground/60 text-sm">MT Steel Capacity</p>
             </div>
             <div className="text-center md:text-left">
-              <span className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground">40K</span>
-              <p className="text-primary-foreground/60 text-sm">Tons Storage</p>
+              <span className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground">66,000</span>
+              <p className="text-primary-foreground/60 text-sm">MT Pipeline Capacity</p>
             </div>
           </div>
         </div>
