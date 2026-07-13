@@ -1,9 +1,10 @@
+import { useMemo } from "react";
 import { ExternalLink, MapPin } from "lucide-react";
 import completedProjectImg from "@/assets/completed-project.jpg";
 
 const clients = [
   { name: "Adani Wilmar Ltd / AWL Agri Business Ltd", location: "Kakinada", sector: "Oil & Gas Refineries" },
-  { name: "Navbharat Limited", location: "Jangareddy Gudem", sector: "Power & Energy" },
+  { name: "Navbharat Limited", location: "Jangareddy Gudem", sector: "Oil & Gas Refineries" },
   { name: "Kalesuwari Refineries Oils Pvt Ltd", location: "Kakinada", sector: "Oil & Gas Refineries" },
   { name: "Agarwal Industries", location: "Kakinada", sector: "Oil & Gas Refineries" },
   { name: "Ruchi Soya Industries / Patanjali Foods Ltd", location: "IDA Peddapuram", sector: "Oil & Gas Refineries" },
@@ -16,7 +17,8 @@ const clients = [
   { name: "Sandhya Aqua Exports Pvt Ltd", location: "Ponnada", sector: "Industrial Manufacturing" },
   { name: "Devi Sea Foods Ltd", location: "Jagampeta", sector: "Industrial Manufacturing" },
   { name: "Neospark Drugs and Chemicals Pvt Ltd", location: "Telangana", sector: "Industrial Manufacturing" },
-  { name: "Veer Petroleums Pvt Ltd", location: "Balabhadrapuram", sector: "Oil & Gas Refineries" },
+  { name: "Veer Petroleums Pvt Ltd", location: "Balabhadrapuram", sector: "Industrial Manufacturing" },
+  { name: "KBK Biotech Pvt Ltd", location: "Medapadu", sector: "Industrial Manufacturing" },
   { name: "Platinum Distilleries Pvt Ltd", location: "Hyderabad", sector: "Industrial Manufacturing" },
   { name: "Sanvira Industries Ltd", location: "Atchutapuram, Visakhapatnam", sector: "Industrial Manufacturing" },
   { name: "Siriman Chemicals Ltd", location: "Atchutapuram, Visakhapatnam", sector: "Industrial Manufacturing" },
@@ -30,22 +32,67 @@ const clients = [
   { name: "KSR Infra Projects", location: "Kakinada", sector: "Urban Infrastructure" },
 ];
 
-const sectorDistribution = [
-  { sector: "Oil & Gas Refineries", percentage: 28 },
-  { sector: "Power & Energy", percentage: 24 },
-  { sector: "Water Infrastructure", percentage: 18 },
-  { sector: "Marine & Offshore", percentage: 15 },
-  { sector: "Urban Infrastructure", percentage: 10 },
-  { sector: "Industrial Manufacturing", percentage: 5 },
-];
-
 const milestones = [
   { year: "2006", event: "Company Established" },
   { year: "2015", event: "ISO 9001:2015 Certified" },
-  { year: "2024", event: "34+ Projects Completed" },
+  { year: "2024", event: "100+ Projects Completed" },
 ];
 
+/**
+ * Computes sector distribution percentages from the client list.
+ * - Automatically picks up any new sector string added to `clients`
+ *   (no need to maintain a separate hardcoded list).
+ * - Uses the largest remainder method so percentages always sum to 100%,
+ *   even when the number of sectors or clients changes.
+ * - Sorted by client count descending (largest sector first).
+ */
+function computeSectorDistribution(clientList: typeof clients) {
+  const total = clientList.length;
+  if (total === 0) return [];
+
+  const counts = clientList.reduce<Record<string, number>>((acc, client) => {
+    acc[client.sector] = (acc[client.sector] || 0) + 1;
+    return acc;
+  }, {});
+
+  const raw = Object.entries(counts).map(([sector, count]) => ({
+    sector,
+    count,
+    exact: (count / total) * 100,
+  }));
+
+  const floored = raw.map((r) => {
+    const flooredPct = Math.floor(r.exact * 10) / 10;
+    return {
+      sector: r.sector,
+      count: r.count,
+      percentage: flooredPct,
+      remainder: r.exact - flooredPct,
+    };
+  });
+
+  const currentTotal = floored.reduce((sum, r) => sum + r.percentage, 0);
+  const pointsToDistribute = Math.round((100 - currentTotal) * 10);
+
+  const byRemainderDesc = [...floored].sort((a, b) => b.remainder - a.remainder);
+  for (let i = 0; i < pointsToDistribute; i++) {
+    byRemainderDesc[i % byRemainderDesc.length].percentage += 0.1;
+  }
+
+  return floored
+    .sort((a, b) => b.count - a.count)
+    .map((r) => ({
+      sector: r.sector,
+      count: r.count,
+      percentage: Math.round(r.percentage * 10) / 10,
+    }));
+}
+
 const Projects = () => {
+  // Recomputes whenever `clients` changes (add/remove/re-sector a company,
+  // including brand-new sector names not seen before).
+  const sectorDistribution = useMemo(() => computeSectorDistribution(clients), []);
+
   return (
     <section id="projects" className="section-padding bg-background">
       <div className="container-custom mx-auto">
@@ -58,7 +105,7 @@ const Projects = () => {
             Project Portfolio
           </h2>
           <p className="text-muted-foreground text-lg">
-            34+ successfully executed projects across diverse industries in 
+            Successfully worked with {clients.length}+ clients across diverse industries in
             Andhra Pradesh & Telangana.
           </p>
         </div>
@@ -70,11 +117,13 @@ const Projects = () => {
               Sector Distribution
             </h3>
             <div className="space-y-4">
-              {sectorDistribution.map((item, index) => (
-                <div key={index}>
+              {sectorDistribution.map((item) => (
+                <div key={item.sector}>
                   <div className="flex justify-between text-sm mb-1">
                     <span className="text-foreground font-medium">{item.sector}</span>
-                    <span className="text-accent font-semibold">{item.percentage}%</span>
+                    <span className="text-accent font-semibold">
+                      {item.percentage % 1 === 0 ? item.percentage : item.percentage.toFixed(1)}%
+                    </span>
                   </div>
                   <div className="w-full bg-secondary rounded-full h-2">
                     <div
@@ -120,9 +169,8 @@ const Projects = () => {
               {clients.map((client, index) => (
                 <div
                   key={index}
-                  className={`p-4 grid grid-cols-12 gap-4 text-sm ${
-                    index % 2 === 0 ? "bg-card" : "bg-secondary/30"
-                  } hover:bg-accent/5 transition-colors`}
+                  className={`p-4 grid grid-cols-12 gap-4 text-sm ${index % 2 === 0 ? "bg-card" : "bg-secondary/30"
+                    } hover:bg-accent/5 transition-colors`}
                 >
                   <span className="col-span-1 text-muted-foreground font-medium">
                     {String(index + 1).padStart(2, '0')}
@@ -161,12 +209,11 @@ const Projects = () => {
                     SRMT Mall, Kakinada
                   </h3>
                   <p className="text-primary-foreground/70 mt-2">
-                    One of the most complex steel structures in the region — 700×700mm box sections 
+                    One of the most complex steel structures in the region — 700×700mm box sections
                     with aluminium façade, lifts, escalators & gaming zone
                   </p>
                 </div>
-                <a
-                  href="#contact"
+                <a href="#contact"
                   className="flex items-center gap-2 bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground px-6 py-3 rounded-lg transition-colors"
                 >
                   Get in Touch <ExternalLink className="w-4 h-4" />
@@ -179,6 +226,5 @@ const Projects = () => {
     </section>
   );
 };
-
 
 export default Projects;

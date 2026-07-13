@@ -1,4 +1,4 @@
-import { Building2, Pipette, Wrench, Anchor, Factory, Cog } from "lucide-react";
+import { Building2, Pipette, Wrench, Anchor, Factory, SquareDashedKanban, Toolbox } from "lucide-react";
 import pipelineImg from "@/assets/pipeline.jpg";
 
 const services = [
@@ -6,15 +6,15 @@ const services = [
     icon: Building2,
     title: "Steel Structures Fabrication & Erections",
     description:
-      "Heavy, medium & light structure production, PEB structures, built-up sections. 40,000 MT annual capacity.",
+      "Heavy, medium & light structure production, Tanks, Pipelines, heavy & light equipments PEB structures, built-up sections. 5,000 MT annual capacity.",
     features: ["Heavy Structures", "PEB", "Built-Up Sections"],
   },
   {
     icon: Pipette,
     title: "Industrial & Oil Gas Pipelines",
     description:
-      "Refinery infrastructure, petrochemical plants, pipeline networks with 66,000 MT pipeline capacity.",
-    features: ["Oil & Gas", "Petrochemical", "66,000 MT Capacity"],
+      "Refinery infrastructure, petrochemical plants, pipeline networks with 75,000 Meters pipeline per year.",
+    features: ["Oil & Gas", "Petrochemical", "75,000 Meters per year"],
   },
   {
     icon: Wrench,
@@ -38,11 +38,18 @@ const services = [
     features: ["Malls", "Commercial", "Smart City"],
   },
   {
-    icon: Cog,
-    title: "Offshore & Marine Works",
+    icon: SquareDashedKanban,
+    title: "Boilers and Chimneys",
     description:
-      "Platform fabrication, pontoons, barges, offshore installations for deep water applications.",
-    features: ["Platforms", "Barges", "Offshore"],
+      "IBR & NON-IBR components manufacturers, Pipe Liners & Repairs, Government approved steam boiler erections, MS & SS engineering equipments manufacturers.",
+    features: ["Pipe Liners", "IBR & NON-IBR", "MS & SS engineering"],
+  },
+  {
+    icon: Toolbox,
+    title: "Welding Products",
+    description:
+      "Premium welding rods, welding machines, cutting equipment, and complete welder safety accessories (PPE, cables, and consumables).",
+    features: ["Rods", "Cables", "Cutting Equipment"],
   },
 ];
 
@@ -56,11 +63,11 @@ const Services = () => {
             Our Divisions & Services
           </span>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2 mb-4">
-            Comprehensive Industrial Solutions
+            Comprehensive Industrial Services
           </h2>
           <p className="text-muted-foreground text-lg">
             From steel structures to pipeline construction, we deliver end-to-end 
-            solutions for diverse industrial needs.
+            services for diverse industrial needs.
           </p>
         </div>
 

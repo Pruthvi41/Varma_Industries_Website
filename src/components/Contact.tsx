@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { useToast } from "../hooks/use-toast";
+import { getWhatsAppUrl } from "../lib/whatsapp";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -17,10 +18,28 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const text = [
+      `*New Enquiry from Website*`,
+      ``,
+      `*Name:* ${formData.name}`,
+      `*Email:* ${formData.email}`,
+      formData.phone && `*Phone:* ${formData.phone}`,
+      formData.company && `*Company:* ${formData.company}`,
+      ``,
+      `*Message:*`,
+      formData.message,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    window.open(getWhatsAppUrl(text), "_blank", "noopener,noreferrer");
+
     toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
+      title: "Redirecting to WhatsApp",
+      description: "Just hit send in WhatsApp to complete your enquiry.",
     });
+
     setFormData({ name: "", email: "", phone: "", company: "", message: "" });
   };
 
@@ -92,7 +111,7 @@ const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 xxxxx xxxxx"
                     className="bg-background"
                   />
                 </div>
@@ -125,7 +144,7 @@ const Contact = () => {
               </div>
               <Button type="submit" className="btn-cta w-full flex items-center justify-center gap-2">
                 <Send className="w-4 h-4" />
-                Send Message
+                Send via WhatsApp
               </Button>
             </form>
           </div>
@@ -159,7 +178,7 @@ const Contact = () => {
                       Phone
                     </h4>
                     <p className="text-muted-foreground text-sm">
-                      +91 98765 43210
+                      +91 72868 78601
                     </p>
                   </div>
                 </div>
@@ -170,7 +189,7 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-foreground mb-1">Email</h4>
                     <p className="text-muted-foreground text-sm">
-                      info@varmaenterprises.com
+                      varmaindustrialenterprises@gmail.com
                     </p>
                   </div>
                 </div>
@@ -190,30 +209,15 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* CTA Card */}
-            {/* <div className="bg-primary text-primary-foreground rounded-lg p-6">
-              <h3 className="font-heading text-xl font-bold mb-3">
-                Request a Quote
-              </h3>
-              <p className="text-primary-foreground/70 text-sm mb-4">
-                Have a specific project in mind? Get a detailed quotation from 
-                our engineering team.
-              </p>
-              <Button className="btn-cta">
-                Get Free Quote
-              </Button>
-            </div> */}
-
             {/* Map Placeholder */}
             <div className="card-steel overflow-hidden">
               <div className="w-full h-full bg-secondary flex items-center justify-center">
                 <div className="w-full h-64 rounded-xl overflow-hidden">
                   <iframe
-                    src="https://www.google.com/maps?q=43.774514,-79.230467&z=10&output=embed"
+                    src="https://www.google.com/maps?q=17.0634223,82.1293017&z=10&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
-                    // allowFullScreen=""
                     loading="lazy"
                   ></iframe>
                 </div>

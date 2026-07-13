@@ -34,8 +34,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center space-x-2">
-            <span className="text-xl md:text-2xl font-heading font-bold text-primary-foreground tracking-wide">
-              VARMA INDUSTRIAL
+            <span className="text-xl md:text-xl font-heading font-bold text-primary-foreground tracking-wide">
+              VARMA INDUSTRIAL ENTERPRISES
             </span>
           </a>
 
@@ -52,7 +52,7 @@ const Navbar = () => {
             ))}
             <Button className="btn-cta flex items-center gap-2">
               <Phone className="w-4 h-4" />
-              Get Quote
+              Contact Us
             </Button>
           </div>
 
@@ -82,7 +82,7 @@ const Navbar = () => {
               <div className="px-4 pt-2">
                 <Button className="btn-cta w-full flex items-center justify-center gap-2">
                   <Phone className="w-4 h-4" />
-                  Get Quote
+                  Contact Us
                 </Button>
               </div>
             </div>

@@ -3,26 +3,26 @@ import { Warehouse, Ruler, Weight, Settings } from "lucide-react";
 const facilities = [
   {
     icon: Warehouse,
-    value: "39,500",
-    unit: "sq.m",
+    value: "7",
+    unit: "Acres",
     label: "Total Plant Area",
   },
   {
     icon: Ruler,
-    value: "22,200",
-    unit: "sq.m",
+    value: "4",
+    unit: "Acres",
     label: "Covered Area",
   },
   {
     icon: Weight,
-    value: "40,000",
+    value: "5000",
     unit: "MT",
     label: "Steel Structure Capacity/yr",
   },
   {
     icon: Settings,
-    value: "66,000",
-    unit: "MT",
+    value: "75,000",
+    unit: "Meters",
     label: "Pipeline Capacity/yr",
   },
 ];
@@ -31,7 +31,7 @@ const equipment = [
   "CNC Machines",
   "EOT Cranes (20 MT)",
   "Mobile Cranage (12 MT)",
-  "Traveling Cranes",
+  "Cranes",
   "Sawing & Drilling",
   "Plate Processing",
   "Angle Masters",
@@ -56,10 +56,10 @@ const Facilities = () => {
             Our Capabilities
           </span>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mt-2 mb-4">
-            Manufacturing Facilities
+            Manufacturing Facilities & Machinery
           </h2>
           <p className="text-primary-foreground/70 text-lg">
-            Two state-of-the-art manufacturing units equipped with modern machinery 
+            Two state-of-the-art manufacturing units equipped with modern machinery
             and extensive handling facilities.
           </p>
         </div>
@@ -82,7 +82,38 @@ const Facilities = () => {
             </div>
           ))}
         </div>
-
+        <div className="flex justify-between w-full mt-12 mb-12">
+          <div className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-lg p-6">
+            <h4 className="font-heading text-xl font-semibold mb-4">
+              Unit I — Primary Manufacturing
+            </h4>
+            <ul className="space-y-2 text-primary-foreground/70 text-sm">
+              <li>Plant Area: 30,000 sq.m | Covered: 15,000 sq.m</li>
+              <li>EOT Cranes: 1 × 10 MT</li>
+              <li>Open Yard Assembly: up to 1,000 MT</li>
+            </ul>
+          </div>
+          <div className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-lg p-6">
+            <h4 className="font-heading text-xl font-semibold mb-4">
+              Unit II
+            </h4>
+            <ul className="space-y-2 text-primary-foreground/70 text-sm">
+              <li>Plant Area: 9,500 sq.m | Covered: 7,200 sq.m</li>
+              <li>EOT Cranes: 2 × 20 MT</li>
+              <li>Open Yard Assembly: up to 200 MT</li>
+            </ul>
+          </div>
+          <div className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-lg p-6">
+            <h4 className="font-heading text-xl font-semibold mb-4">
+              Material Handling equipment
+            </h4>
+            <ul className="space-y-2 text-primary-foreground/70 text-sm">
+              <li>Plant Area: 30,000 sq.m | Covered: 15,000 sq.m</li>
+              <li>EOT Cranes: 1 × 10 MT</li>
+              <li>Open Yard Assembly: up to 1,000 MT</li>
+            </ul>
+          </div>
+        </div>
         {/* Equipment Grid */}
         <div className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-lg p-8">
           <h3 className="font-heading text-2xl font-bold mb-6 text-center">
@@ -97,30 +128,6 @@ const Facilities = () => {
                 {item}
               </div>
             ))}
-          </div>
-        </div>
-        <div className="grid md:grid-cols-2 gap-6 mt-12">
-          <div className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-lg p-6">
-            <h4 className="font-heading text-xl font-semibold mb-4">
-              Unit I — Primary Manufacturing
-            </h4>
-            <ul className="space-y-2 text-primary-foreground/70 text-sm">
-              <li>Plant Area: 30,000 sq.m | Covered: 15,000 sq.m</li>
-              <li>EOT Cranes: 1 × 10 MT</li>
-              <li>Traveling Cranes: 2 × 5 MT</li>
-              <li>Open Yard Assembly: up to 1,000 MT</li>
-            </ul>
-          </div>
-          <div className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-lg p-6">
-            <h4 className="font-heading text-xl font-semibold mb-4">
-              Unit II
-            </h4>
-            <ul className="space-y-2 text-primary-foreground/70 text-sm">
-              <li>Plant Area: 9,500 sq.m | Covered: 7,200 sq.m</li>
-              <li>EOT Cranes: 2 × 20 MT</li>
-              <li>Traveling Cranes: 2 × 14 MT</li>
-              <li>Open Yard Assembly: up to 200 MT</li>
-            </ul>
           </div>
         </div>
       </div>

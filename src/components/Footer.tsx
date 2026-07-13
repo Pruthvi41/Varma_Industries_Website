@@ -16,7 +16,7 @@ const Footer = () => {
     "Steel Structures",
     "Pipeline Construction",
     "Custom Fabrication",
-    "Ports & Marine",
+    "Boiler & Chimneys",
     "Urban Infrastructure",
     "CS Pipes & Tubulars",
   ];
@@ -30,7 +30,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <h3 className="font-heading text-2xl font-bold mb-4">
-              VARMA INDUSTRIAL
+              VARMA INDUSTRIAL ENTERPRISES
             </h3>
             <p className="text-primary-foreground/60 text-sm mb-6 leading-relaxed">
               Pioneering steel structures and industrial solutions since 2006.
@@ -101,20 +101,20 @@ const Footer = () => {
                 >
                   <MapPin className="w-5 h-5 text-orange flex-shrink-0 mt-0.5 group-hover:scale-110 transition" />
                   <span className="text-primary-foreground/60 text-sm group-hover:underline">
-                    Andhra Pradesh & Telangana, India
+                    347H+CJ9, adp road, Peddapuram, Andhra Pradesh 533437, India
                   </span>
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-orange flex-shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/60 text-sm">
-                  +91 98765 43210
+                  +91 72868 78601
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-orange flex-shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/60 text-sm">
-                  info@varmaenterprises.com
+                  varmaindustrialenterprises@gmail.com
                 </span>
               </li>
             </ul>
@@ -129,7 +129,7 @@ const Footer = () => {
             <p className="text-primary-foreground/50 text-sm">
               © {currentYear} VARMA INDUSTRIAL ENTERPRISES. All rights reserved.
             </p>
-            <div className="flex gap-6">
+            {/* <div className="flex gap-6">
               <a
                 href="#"
                 className="text-primary-foreground/50 hover:text-primary-foreground text-sm transition-colors"
@@ -142,7 +142,7 @@ const Footer = () => {
               >
                 Terms of Service
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
