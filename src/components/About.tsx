@@ -1,7 +1,10 @@
-import { CheckCircle, Users, Target, Zap } from "lucide-react";
+import { useState } from "react";
+import { CheckCircle, Users, Target, Zap, ChevronDown, ChevronUp } from "lucide-react";
 import fabricationImg from "@/assets/fabrication.jpg";
 
 const About = () => {
+  const [expanded, setExpanded] = useState(false);
+
   const highlights = [
     {
       icon: Users,
@@ -33,20 +36,61 @@ const About = () => {
               Pioneering Steel Construction Since 2006
             </h2>
             <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-              Since 2006, Varma Industrial Enterprises has been pioneering steel structure 
-              construction, building on a legacy of innovation in ferro concrete advantages 
-              and industrial material refinement. We have created new applications and 
+              Since 2006, Varma Industrial Enterprises has been pioneering steel structure
+              construction, building on a legacy of innovation in ferro concrete advantages
+              and industrial material refinement. We have created new applications and
               construction methods that form the foundation of our successful company history.
             </p>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
-              Through pipeline construction and large-scale industrial projects, we have 
-              established ourselves as one of Andhra Pradesh &amp; Telangana&apos;s leading 
-              construction groups, continuously expanding our solution-oriented business model. 
-              Our team of 200+ employees and skilled staff drives this growth on the ground, 
+            <p className="text-muted-foreground mb-4 leading-relaxed">
+              Through pipeline construction and large-scale industrial projects, we have
+              established ourselves as one of Andhra Pradesh &amp; Telangana&apos;s leading
+              construction groups, continuously expanding our solution-oriented business model.
+              Our team of 200+ employees and skilled staff drives this growth on the ground,
               every day.
             </p>
+
+            {/* Expandable additional content */}
+            <div
+              className={`overflow-hidden transition-all duration-500 ${expanded ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+                }`}
+            >
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                Our two manufacturing units span a combined 7 acres, with 4 acres of covered
+                production area, equipped with CNC machines, EOT cranes, plate processing,
+                and pipe processing lines. This infrastructure supports an annual capacity of
+                5,000 MT in steel structure fabrication and 75,000 meters of pipeline
+                construction, backed by standard operating procedures across Operations,
+                Engineering, QA/QC, HSE, and Internal Audit functions.
+              </p>
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                Quality remains central to our operations — every weld is third-party tested
+                by internationally recognized agencies, and our processes are certified to
+                ISO 9001:2015 standards. This commitment extends across our client base,
+                spanning oil & gas refineries, industrial manufacturing, power & energy,
+                marine & offshore, and urban infrastructure sectors across the region.
+              </p>
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                Beyond core fabrication and construction, the Varma Industrial Enterprises
+                group extends into distribution and specialized manufacturing through our
+                associated brands, reflecting our commitment to serving the full spectrum of
+                industrial and infrastructure needs.
+              </p>
+            </div>
+            {/* View More toggle */}
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all mb-4"
+            >
+              {expanded ? "View Less" : "View More"}
+              {expanded ? (
+                <ChevronUp className="w-4 h-4" />
+              ) : (
+                <ChevronDown className="w-4 h-4" />
+              )}
+            </button>
+
             <blockquote className="border-l-4 border-accent pl-4 mb-8 italic text-muted-foreground">
-              &ldquo;In this competence alliance, VIE follows the successful strategy of TEAMS WORK. 
+              &ldquo;In this competence alliance, VIE follows the successful strategy of TEAMS WORK.
               Because success comes from working together.&rdquo;
               <span className="block mt-2 not-italic font-semibold text-foreground text-sm">
                 — Mr. S.R.K.S. Ravi Varma, Managing Partner
@@ -54,7 +98,7 @@ const About = () => {
             </blockquote>
 
             {/* Checkmarks */}
-            <div className="space-y-3 mb-8">
+            <div className="space-y-3 mb-6">
               {[
                 "ISO 9001:2015 Certified Organization",
                 "200+ Skilled Employees & Staff",

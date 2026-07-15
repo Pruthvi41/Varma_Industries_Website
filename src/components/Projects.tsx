@@ -1,6 +1,5 @@
 import { useMemo } from "react";
-import { ExternalLink, MapPin } from "lucide-react";
-import completedProjectImg from "@/assets/completed-project.jpg";
+import { MapPin } from "lucide-react";
 
 const clients = [
   { name: "Adani Wilmar Ltd / AWL Agri Business Ltd", location: "Kakinada", sector: "Oil & Gas Refineries" },
@@ -197,7 +196,7 @@ const Projects = () => {
         </div>
 
         {/* Featured Project Image */}
-        <div className="relative rounded-lg overflow-hidden shadow-xl group">
+        {/* <div className="relative rounded-lg overflow-hidden shadow-xl group">
           <img
             src={completedProjectImg}
             alt="SRMT Mall Kakinada - Complex Steel Structure Project"
@@ -226,7 +225,7 @@ const Projects = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
