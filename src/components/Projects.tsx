@@ -160,7 +160,7 @@ const Projects = () => {
               Our Clients
             </h3>
             <div className="card-steel overflow-hidden max-h-[600px] overflow-y-auto">
-              <div className="bg-primary text-primary-foreground p-4 grid grid-cols-12 gap-4 font-semibold text-sm sticky top-0 z-10">
+              <div className="hidden sm:grid bg-primary text-primary-foreground p-4 grid-cols-12 gap-4 font-semibold text-sm sticky top-0 z-10">
                 <span className="col-span-1">#</span>
                 <span className="col-span-5">Client</span>
                 <span className="col-span-3">Location</span>
@@ -169,20 +169,25 @@ const Projects = () => {
               {clients.map((client, index) => (
                 <div
                   key={index}
-                  className={`p-4 grid grid-cols-12 gap-4 text-sm ${index % 2 === 0 ? "bg-card" : "bg-secondary/30"
-                    } hover:bg-accent/5 transition-colors`}
+                  className={`p-4 text-sm ${index % 2 === 0 ? "bg-card" : "bg-secondary/30"
+                    } hover:bg-accent/5 transition-colors
+        flex flex-col gap-1
+        sm:grid sm:grid-cols-12 sm:gap-4 sm:items-start`}
                 >
-                  <span className="col-span-1 text-muted-foreground font-medium">
-                    {String(index + 1).padStart(2, '0')}
+                  <span className="sm:col-span-1 text-muted-foreground font-medium">
+                    {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="col-span-5 font-medium text-foreground">
+                  <span className="sm:col-span-5 font-medium text-foreground break-words">
                     {client.name}
                   </span>
-                  <span className="col-span-3 text-muted-foreground flex items-center gap-1">
+                  <span className="sm:col-span-3 text-muted-foreground flex items-center gap-1">
                     <MapPin className="w-3 h-3 flex-shrink-0" />
                     {client.location}
                   </span>
-                  <span className="col-span-3 text-muted-foreground text-xs">
+                  <span className="sm:col-span-3 text-muted-foreground text-xs">
+                    <span className="sm:hidden font-medium text-foreground/70 mr-1">
+                      Sector:
+                    </span>
                     {client.sector}
                   </span>
                 </div>

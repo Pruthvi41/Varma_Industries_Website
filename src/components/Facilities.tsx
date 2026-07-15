@@ -22,7 +22,7 @@ const facilities = [
   {
     icon: Settings,
     value: "75,000",
-    unit: "Meters",
+    unit: "Mtrs",
     label: "Pipeline Capacity/yr",
   },
 ];
@@ -82,7 +82,7 @@ const Facilities = () => {
             </div>
           ))}
         </div>
-        <div className="flex justify-between w-full mt-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 mb-12">
           <div className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-lg p-6">
             <h4 className="font-heading text-xl font-semibold mb-4">
               Unit I — Primary Manufacturing
