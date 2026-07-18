@@ -201,6 +201,11 @@ const Services = () => {
                   <img
                     src={project.src}
                     alt={project.caption}
+                    loading={index<2 ? "eager" : "lazy"}
+                    decoding="async"
+                    fetchPriority={index<2 ? "high" : "auto"}
+                    width={800}
+                    height={600}
                     className="w-full h-64 sm:h-80 md:h-96 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
