@@ -8,10 +8,13 @@ import Facilities from "../components/Facilities";
 import Quality from "../components/Quality";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import { ScrollProgress, useScrollReveal } from "../components/Motion";
 
 const Index = () => {
+  useScrollReveal();
   return (
     <div className="min-h-screen">
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <SubBrands />

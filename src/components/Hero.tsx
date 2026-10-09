@@ -1,18 +1,25 @@
 import { Shield, Award, Clock, IdCardLanyard } from "lucide-react";
+import { useRef } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
+import { CountUp, Sparks, useParallax } from "./Motion";
 
 const Hero = () => {
+  const bgRef = useRef<HTMLDivElement>(null);
+  useParallax(bgRef, 0.25);
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/95 via-navy/85 to-navy-dark/70" />
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          ref={bgRef}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat hero-kenburns will-change-transform"
+          style={{ backgroundImage: `url(${heroBg})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-red from-navy-dark/95 via-navy/85 to-navy-dark/70" />
+        <Sparks />
       </div>
 
       {/* Content */}
@@ -27,7 +34,7 @@ const Hero = () => {
           </div>
 
           {/* Heading */}
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-7xl font-bold text-primary-foreground leading-tight mb-6 animate-slide-up">
+          <h1 className="font-heading text-4xl md:text-5xl lg:text-7xl font-bold text-primary-foreground leading-tight mb-6 animate-slide-up hero-title">
             VARMA INDUSTRIAL
             <span className="block text-accent">ENTERPRISES</span>
           </h1>
@@ -59,28 +66,28 @@ const Hero = () => {
             <div className="text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
                 <Clock className="w-5 h-5 text-orange" />
-                <span className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground">19+</span>
+                <span className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground"><CountUp to={19} suffix="+" /></span>
               </div>
               <p className="text-primary-foreground/60 text-sm">Years Experience</p>
             </div>
             <div className="text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
                 <Award className="w-5 h-5 text-orange" />
-                <span className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground">100+</span>
+                <span className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground"><CountUp to={100} suffix="+" /></span>
               </div>
               <p className="text-primary-foreground/60 text-sm">Projects Completed</p>
             </div>
             <div className="text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
                 <Award className="w-5 h-5 text-orange" />
-                <span className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground">10,000</span>
+                <span className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground"><CountUp to={10000} /></span>
               </div>
               <p className="text-primary-foreground/60 text-sm">MT Total Capacity</p>
             </div>
             <div className="text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
                 <IdCardLanyard className="w-5 h-5 text-orange" />
-                <span className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground">200+</span>
+                <span className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground"><CountUp to={200} suffix="+" /></span>
               </div>
               <p className="text-primary-foreground/60 text-sm">Employees</p>
             </div>
