@@ -94,25 +94,25 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <a
-                  href="https://www.google.com/maps?q=17.3850,78.4867"
+                  href="https://www.google.com/maps?q=17.0634223,82.1293017"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-3 group"
                 >
-                  <MapPin className="w-5 h-5 text-orange flex-shrink-0 mt-0.5 group-hover:scale-110 transition" />
+                  <MapPin className="w-5 h-5 text-orange shrink-0 mt-0.5 group-hover:scale-110 transition" />
                   <span className="text-primary-foreground/60 text-sm group-hover:underline">
-                    347H+CJ9, adp road, Peddapuram, Andhra Pradesh 533437, India
+                    Plot No. 97, IDA, ADB Road, Rayabhupalapatnam (V), Peddapuram – 533437
                   </span>
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-orange flex-shrink-0 mt-0.5" />
+                <Phone className="w-5 h-5 text-orange shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/60 text-sm">
                   +91 72868 78601
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-orange flex-shrink-0 mt-0.5" />
+                <Mail className="w-5 h-5 text-orange shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/60 text-sm">
                   varmaindustrialenterprises@gmail.com
                 </span>
